@@ -1,0 +1,17 @@
+  FORMAT OF THE SUBSETTED FILE
+    
+    ITEMS                      FORMAT   
+     
+ 1 Year                          I4        
+ 2 Day                           I4        
+ 3 Hour                          I3        
+ 4 Minute                        I3        
+ 5 BX, GSE, nT                   F8.2      
+ 6 BY, GSE, nT                   F8.2      
+ 7 BZ, GSE, nT                   F8.2      
+ 8 KP_Speed, km/s                F8.1      
+ 9 KP_Vx,km/s                    F8.1      
+10 Kp_Vy, km/s                   F8.1      
+11 KP_Vz, km/s                   F8.1      
+12 Kp_proton Density, n/cc       F7.2      
+13 Kp_temperature, K             F9.0      

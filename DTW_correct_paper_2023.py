@@ -15,32 +15,25 @@ import cPickle as pickle #for loading data from npz
 # real_stand and modeled_stand are the sequences being compared
 # This is the only part that needs to be changed, based on the user's time series
 
-sys_dir = '/media/u0141347/T7/openggcm/inputs/'
-ext_dir = '/media/u0141347/T7/openggcm/Paper/'
+sys_dir = './'
 
 #Relevant data files
-
-event=['20120712','20170904']
+#Event1 is associated with the CME event on 20120712.
+#Event2 is associated with the CME event on 20170904
+event=['Event1','Event2']
 year_arr=['2012','2017']
 
 
 nn=1 #Change this while changing event
 
 if nn==0:  #Also check line 125
-        sw = '20120712_wi_lowcad_init14h_re'; spr = '20120712_lowcad_init15h_-1nT_1'
-	#sw = '20120712_wi_lowres'; spr = '20120712_lowcad'
+        sw = 'Event1-obs'; spr = 'Event1-euh'
 else: 
-	sw = '20170904_omni_lowcad3'; spr = '20170904_lowcad_11'
+	sw = 'Event2-obs'; spr = 'Event2-euh'
 	
-euh_run = sw
+euh_run = sw #Change this depending on which run you are analyzing
 save=np.bool(True)
 put_window=np.bool(True)
-#2017: '20170904_omni_lowcad3' #'20170904_omni_lowcad1'
-#2012: '20120712_wi_lowres'
-#These are the old runs that gave good results: '20120712_wi_lowres' #'20170904_omni_lowres' 
-#2017: '20170904_lowcad_11' #'20170904_lowcad_1'
-#2012: '20120712_lowcad', '20120712_lowcad_init15h' (AE is bad)
-#These are the old runs that gave good results: '20120712_spr_135_med_lowres' #'20170904_spr_med_highres' #'20170904_spr_med_highres' #'20120712_spr_135_med_lowres' #'20120712_spr_135_med_highres_pm5nT' 
 
 year = year_arr[nn]; loc = 'Earth'
 if nn==0 and euh_run == spr:
@@ -209,9 +202,6 @@ path_y = [point[1] for point in path]
 
 distance_distance_plot(DTW)
 plt.plot(path_x, path_y, linewidth=5);
-#plt.show()
-#plt.savefig('NewPlots/ShiftingTests/TestCase/MyWay_shifted1_heatmap.png', dpi=300, bbox_inches='tight')
-
 
 # This is to reverse
 def path_DTW(model_stand, real_stand, DTW, cost):
@@ -289,26 +279,6 @@ print (type(map_y),map_y)
 print ('range of delta_t', min(delta_t), max(delta_t))
 print ('range of delta_amp', min(delta_amp), max(delta_amp))
 #------------------ Plot histograms for Time_diff and Amp_diff ---------------------#
-
-'''
-#hist, bins = np.histogram(Time_diff,bins = 'auto') #[0,20,40,60,80,100])    
-
-# Creating histogram
-fig, axs = plt.subplots(1, 1,
-                        figsize =(10, 7),
-                        tight_layout = True)
- 
-axs.hist(delta_t, bins = 8)
-
-fig, axs = plt.subplots(1, 1,
-                        figsize =(10, 7),
-                        tight_layout = True)
-axs.hist(delta_amp, bins = 8) 
-
-# Show plot
-
-plt.show()   
-'''
 
 ##########################################################################################################################
 ##########################################################################################################################
