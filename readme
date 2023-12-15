@@ -1,0 +1,8 @@
+To EUHFORIA output (dsv files) into OpenGGCM readable format:
+Step 1: Convert EUHFORIA HEEQ data (hsphere.dsv file) to GSE coordinates (euh_10min_gse.txt) using euhforia_heeq2gse.py
+Step 2: Convert the GSE data (euh_10min_gse.py) to OpenGGCM input formating satfilter_euh.py
+
+The folders Event1 and Event2 contain the input files and the setup file used for OpenGGCM simulations in the paper.
+>> runme file
+>> For EUHFORIA data: euh.bxgse, euh.bygse, euh.bzgse, etc
+>> For WIND or OMNI data: wi.bxgse or omni.bxgse etc
